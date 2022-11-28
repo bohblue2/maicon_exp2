@@ -1,0 +1,4 @@
+train_image_dir: /mnt/e/yolov5pip_therm/train
+train_json_path: /mnt/e/yolov5pip_therm/train/train.json
+val_image_dir: /mnt/e/yolov5pip_therm/valid
+val_json_path: /mnt/e/yolov5pip_therm/valid/valid.json

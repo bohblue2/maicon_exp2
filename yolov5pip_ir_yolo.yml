@@ -1,0 +1,11 @@
+names:
+- man
+- motorcycleman
+- bicycleman
+- kickboardman
+- motorcycle
+- bicycle
+- kickboard
+nc: 7
+train: /mnt/d/projects/yolov5_converter/yolov5pip_ir_yolo/train.txt
+val: /mnt/d/projects/yolov5_converter/yolov5pip_ir_yolo/val.txt
