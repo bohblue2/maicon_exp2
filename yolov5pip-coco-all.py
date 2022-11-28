@@ -70,6 +70,7 @@ def convert_coco(img_path, save_dir, coco, is_train=True):
         info = json.load(open(label_path, "r"))
     except Exception as e:
         print(e)
+        return 
     else:
         shutil.copy(img_path, img_save_path)
     img_base_filename = osp.basename(img_save_path)
