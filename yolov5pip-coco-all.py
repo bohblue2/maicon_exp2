@@ -99,7 +99,7 @@ def convert_coco(img_path, save_dir, coco, is_train=True):
 
 
 train_coco = Coco()
-train_num = 10_000
+train_num = 400_000
 train_ds = random.sample(train_imgs, train_num)
 train_job = Parallel(n_jobs=mp.cpu_count(), prefer="threads")(
     delayed(convert_coco)(img_path, train_save_dir, train_coco)
@@ -111,7 +111,7 @@ save_json(train_coco.json, train_ann_path)
 
 valid_coco = Coco()
 valid_num_start = 0
-valid_num = int(len(valid_jsons) * 0.01)
+valid_num = int(len(valid_jsons) * 1)
 valid_ds = valid_imgs[valid_num_start : valid_num_start + valid_num]
 valid_job = Parallel(n_jobs=mp.cpu_count(), prefer="threads")(
     delayed(convert_coco)(img_path, valid_save_dir, valid_coco, False)
