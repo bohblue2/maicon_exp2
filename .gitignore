@@ -1,7 +1,12 @@
 *.pt
 .vscode
+
 wandb
 artifacts
+yolov5pip_all_so.yml
+yolov5pip_all_yolo.yml
+yolov5pip_all_st/
+yolov5pip_all_yolo/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
