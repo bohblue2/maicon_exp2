@@ -58,7 +58,7 @@ from sklearn.model_selection import train_test_split
 x_train, x_valid, y_train, y_valid = train_test_split(
     yo_img_paths,
     yo_label_paths,
-    test_size=0.02,
+    test_size=0.01,
     shuffle=True,
     stratify=None,
     random_state=34,
