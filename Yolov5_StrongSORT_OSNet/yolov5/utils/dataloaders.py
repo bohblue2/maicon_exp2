@@ -241,14 +241,16 @@ class LoadImages:
         files = []
         for p in sorted(path) if isinstance(path, (list, tuple)) else [path]:
             p = str(Path(p).resolve())
-            if '*' in p:
-                files.extend(sorted(glob.glob(p, recursive=True)))  # glob
-            elif os.path.isdir(p):
-                files.extend(sorted(glob.glob(os.path.join(p, '*.*'))))  # dir
-            elif os.path.isfile(p):
-                files.append(p)  # files
-            else:
-                raise FileNotFoundError(f'{p} does not exist')
+            files.extend(sorted(glob.glob(os.path.join(p, '*', '*.jpg'))))
+
+            # if '*' in p:
+            #     files.extend(sorted(glob.glob(p, recursive=True)))  # glob
+            # elif os.path.isdir(p):
+            #     files.extend(sorted(glob.glob(os.path.join(p, '*.*'))))  # dir
+            # elif os.path.isfile(p):
+            #     files.append(p)  # files
+            # else:
+            #     raise FileNotFoundError(f'{p} does not exist')
 
         images = [x for x in files if x.split('.')[-1].lower() in IMG_FORMATS]
         videos = [x for x in files if x.split('.')[-1].lower() in VID_FORMATS]

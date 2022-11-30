@@ -1,4 +1,5 @@
 .vscode/
+runs/
 
 # interpreter bytecode
 __pycache__/

@@ -122,6 +122,10 @@ def run(
     #model.warmup(imgsz=(1 if pt else nr_sources, 3, *imgsz))  # warmup
     dt, seen = [0.0, 0.0, 0.0, 0.0], 0
     curr_frames, prev_frames = [None] * nr_sources, [None] * nr_sources
+
+    prev_p_name = None
+    curr_p_name = None
+    _frame_idx = 0
     for frame_idx, (path, im, im0s, vid_cap, s) in enumerate(dataset):
         t1 = time_sync()
         im = torch.from_numpy(im).to(device)
@@ -142,6 +146,16 @@ def run(
         pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms, max_det=max_det)
         dt[2] += time_sync() - t3
 
+        # if base_name is changed frame id reset to 0
+        _p = Path(path)
+        if prev_p_name == None:
+            prev_p_name = _p.parent.parent.name 
+        curr_p_name = _p.parent.parent.name
+        
+        if prev_p_name != curr_p_name:
+            _frame_idx = 0
+            prev_p_name = curr_p_name
+
         # Process detections
         for i, det in enumerate(pred):  # detections per image
             seen += 1
@@ -160,8 +174,10 @@ def run(
                     save_path = str(save_dir / p.name)  # im.jpg, vid.mp4, ...
                 # folder with imgs
                 else:
-                    txt_file_name = p.parent.name  # get folder name containing current img
-                    save_path = str(save_dir / p.parent.name)  # im.jpg, vid.mp4, ...
+                    txt_file_name = p.parent.parent.name  # get folder name containing current img
+                    save_path = str(save_dir / p.parent.parent.name)  # im.jpg, vid.mp4, ...
+                    # txt_file_name = p.parent.parent.name  # get folder name containing current img
+                    # save_path = str(save_dir / p.parent.parent.name)  # im.jpg, vid.mp4, ...
             curr_frames[i] = im0
 
             txt_path = str(save_dir / 'tracks' / txt_file_name)  # im.txt
@@ -191,6 +207,7 @@ def run(
 
                 # draw boxes for visualization
                 if len(outputs[i]) > 0:
+                    
                     for j, (output, conf) in enumerate(zip(outputs[i], det[:, 4])):
     
                         bboxes = output[0:4]
@@ -205,8 +222,12 @@ def run(
                             bbox_h = output[3] - output[1]
                             # Write MOT compliant results to file
                             with open(txt_path + '.txt', 'a') as f:
-                                f.write(('%g ' * 10 + '\n') % (frame_idx + 1, id, bbox_left,  # MOT format
-                                                               bbox_top, bbox_w, bbox_h, -1, -1, -1, i))
+                                # f.write(('%g,' * 10 + '\n') % (_frame_idx + 1, id, bbox_left,  # MOT format
+                                #                                bbox_top, bbox_w, bbox_h, 1, -1, -1, -1))
+                                f.write(f"{_frame_idx + 1},{id},{bbox_left},{bbox_top},{bbox_w},{bbox_h},1,-1,-1,-1")
+                                # f.write(('%g ' * 10 + '\n') % (frame_idx + 1, id, bbox_left,  # MOT format
+                                #                                bbox_top, bbox_w, bbox_h, -1, -1, -1, i))
+                            _frame_idx += 1
 
                         if save_vid or save_crop or show_vid:  # Add bbox to image
                             c = int(cls)  # integer class
