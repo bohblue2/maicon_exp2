@@ -31,11 +31,11 @@ Our pretrained models are available on wandb as the following. Note that we trai
 
 Pretrianed models are also available through 'w_download_model.py'. The code is as the following.
 
-'''bash
+```bash
 $ python w_download_model.py
-'''
+```
 
-'''
+```
 import wandb
 project = 'maicon_all'
 entity = 'ryanbae'
@@ -44,6 +44,6 @@ model = run.use_artifact(f'{entity}/{project}/run_ir:latest', type='model')
 directory = model.download()
 model = run.use_artifact(f'{entity}/{project}/run_thermal:latest', type='model')
 directory = model.download()
-'''
+```
 
 Note that we trained our model on single NVIDIA A100 GPU(40GB).
