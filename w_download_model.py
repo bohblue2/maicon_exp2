@@ -1,6 +1,8 @@
 import wandb
-run = wandb.init(project='maicon_all', entity='ryanbae')
-model = run.use_artifact('run_ir:latest')
-directory = model.download()
-model = run.use_artifact('run_thermal:latest')
-directory = model.download()
+project = 'maicon_all'
+entity = 'ryanbae'
+run = wandb.init(project=project)
+model = run.use_artifact(f'{entity}/{project}/run_ir:v0', type='model')
+directory = model.download(root='yolov5-pip/weights/ir')
+model = run.use_artifact(f'{entity}/{project}/run_thermal:v0', type='model')
+directory = model.download(root='yolov5-pip/weights/thermal')
