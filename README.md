@@ -30,9 +30,11 @@ Our pretrained models are available on wandb as the following. Note that we trai
 |Thermal image |691.2MB|   Nov 29, 2022    |[wandb](https://wandb.ai/ryanbae/maicon_all/artifacts/model/run_thermal/v0/overview)|
 
 Pretrianed models are also available through 'w_download_model.py'. The code is as the following.
+
 '''bash
 $ python w_download_model.py
 '''
+
 '''
 import wandb
 project = 'maicon_all'
