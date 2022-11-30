@@ -155,7 +155,6 @@ def run(
         if prev_p_name != curr_p_name:
             _frame_idx = 0
             prev_p_name = curr_p_name
-
         # Process detections
         for i, det in enumerate(pred):  # detections per image
             seen += 1
@@ -213,6 +212,8 @@ def run(
                         bboxes = output[0:4]
                         id = output[4]
                         cls = output[5]
+                        # print(output)
+                        # print(det[:, 5])
 
                         if save_txt:
                             # to MOT format
@@ -224,10 +225,9 @@ def run(
                             with open(txt_path + '.txt', 'a') as f:
                                 # f.write(('%g,' * 10 + '\n') % (_frame_idx + 1, id, bbox_left,  # MOT format
                                 #                                bbox_top, bbox_w, bbox_h, 1, -1, -1, -1))
-                                f.write(f"{_frame_idx + 1},{id},{bbox_left},{bbox_top},{bbox_w},{bbox_h},1,-1,-1,-1")
+                                f.write(f"{_frame_idx + 1},{int(id)},{bbox_left},{bbox_top},{bbox_w},{bbox_h},1,-1,-1,-1\n")
                                 # f.write(('%g ' * 10 + '\n') % (frame_idx + 1, id, bbox_left,  # MOT format
                                 #                                bbox_top, bbox_w, bbox_h, -1, -1, -1, i))
-                            _frame_idx += 1
 
                         if save_vid or save_crop or show_vid:  # Add bbox to image
                             c = int(cls)  # integer class
@@ -268,7 +268,8 @@ def run(
                 vid_writer[i].write(im0)
 
             prev_frames[i] = curr_frames[i]
-
+        # End of Frame
+        _frame_idx += 1
     # Print results
     t = tuple(x / seen * 1E3 for x in dt)  # speeds per image
     LOGGER.info(f'Speed: %.1fms pre-process, %.1fms inference, %.1fms NMS, %.1fms {tracking_method} update per image at shape {(1, 3, *imgsz)}' % t)

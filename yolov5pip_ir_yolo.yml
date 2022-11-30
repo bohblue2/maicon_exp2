@@ -1,0 +1,5 @@
+names:
+- man
+nc: 1
+train: /workspace/maicon_exp2/yolov5pip_ir_yolo/train.txt
+val: /workspace/maicon_exp2/yolov5pip_ir_yolo/val.txt

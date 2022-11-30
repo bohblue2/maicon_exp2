@@ -1,4 +1,4 @@
 train_image_dir: /workspace/cthermal_data/train
 train_json_path: /workspace/cthermal_data/annotations/train.json
-val_image_dir: /workspace/cthermal_data/valid
-val_json_path: /workspace/cthermal_data/annotations/valid.json
+val_image_dir: /workspace/cthermal_data/train
+val_json_path: /workspace/cthermal_data/annotations/valid_half.json

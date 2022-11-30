@@ -1,10 +1,10 @@
 from sahi.utils.coco import export_coco_as_yolov5_via_yml
 
 # yml_path = "./yolov5pip_ir_so.yml"  # data_coco_from yolov5-pip format
-yml_path = "./yolov5pip_therm_so.yml"  # data_coco_from yolov5-pip format
+yml_path = "./yolov5pip_itherm_so.yml"  # data_coco_from yolov5-pip format
 # yml_path = "./yolov5pip_all_so.yml"  # data_coco_from yolov5-pip format
 # save_dir = "./yolov5pip_ir_st"
-save_dir = "./yolov5pip_therm_st"
+save_dir = "./yolov5pip_itherm_st"
 # save_dir = "./yolov5pip_all_st"
 
 data = export_coco_as_yolov5_via_yml(

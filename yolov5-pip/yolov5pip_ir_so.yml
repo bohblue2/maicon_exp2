@@ -1,4 +1,0 @@
-train_image_dir: /workspace/cir_data/train
-train_json_path: /workspace/cir_data/annotations/train.json
-val_image_dir: /workspace/cir_data/valid
-val_json_path: /workspace/cir_data/annotations/valid.json

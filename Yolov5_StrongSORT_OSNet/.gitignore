@@ -1,5 +1,7 @@
 .vscode/
 runs/
+subm/
+subm_i_*/
 
 # interpreter bytecode
 __pycache__/
@@ -9,4 +11,4 @@ __pycache__/
 *.torchscript
 *.pt
 *.onnx
-*.engine
+*.engine    

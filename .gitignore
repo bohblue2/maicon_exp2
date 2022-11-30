@@ -7,6 +7,13 @@ yolov5pip_all_so.yml
 yolov5pip_all_yolo.yml
 yolov5pip_all_st/
 yolov5pip_all_yolo/
+yolov5pip_ir_st/
+yolov5pip_ir_yolo/
+yolov5pip_therm_st/
+yolov5pip_therm_yolo/
+yolov5pip_itherm_st/
+yolov5pip_itherm_yolo/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -2,6 +2,10 @@
 .vscode
 runs
 maicon_all
+run_ir/
+run_therm/
+run_itherm/
+run_*/
 
 # Repo-specific GitIgnore ----------------------------------------------------------------------------------------------
 *.jpg
