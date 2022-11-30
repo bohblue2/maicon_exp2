@@ -1,11 +1,11 @@
 from sahi.utils.coco import export_coco_as_yolov5_via_yml
 
-# yml_path = "./yolov5pip_ir_so.yml"  # data_coco_from yolov5-pip format
+yml_path = "./yolov5pip_ir_so.yml"  # data_coco_from yolov5-pip format
 # yml_path = "./yolov5pip_therm_so.yml"  # data_coco_from yolov5-pip format
-yml_path = "./yolov5pip_all_so.yml"  # data_coco_from yolov5-pip format
-# save_dir = "./yolov5pip_ir_st"
+# yml_path = "./yolov5pip_all_so.yml"  # data_coco_from yolov5-pip format
+save_dir = "./yolov5pip_ir_st"
 # save_dir = "./yolov5pip_therm_st"
-save_dir = "./yolov5pip_all_st"
+# save_dir = "./yolov5pip_all_st"
 
 data = export_coco_as_yolov5_via_yml(
     yml_path=yml_path, output_dir=save_dir + "/" + "data"
@@ -32,12 +32,12 @@ with open(data, errors="ignore") as f:
 
     updated_data_info["names"] = [
         "man",
-        "motorcycleman",
-        "bicycleman",
-        "kickboardman",
-        "motorcycle",
-        "bicycle",
-        "kickboard",
+        # "motorcycleman",
+        # "bicycleman",
+        # "kickboardman",
+        # "motorcycle",
+        # "bicycle",
+        # "kickboard",
     ]
     print(f"Force Updating: {updated_data_info['names']}")
 with open(data, "w") as f:

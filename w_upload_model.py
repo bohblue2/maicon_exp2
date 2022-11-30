@@ -1,6 +1,5 @@
 import wandb
-
-wandb.init(project='maicon_all')
+wandb.init(project='maicon_all', entity='ryanbae')
 
 name = 'run_ir'
 epoch = 9
