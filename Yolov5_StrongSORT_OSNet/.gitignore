@@ -2,6 +2,9 @@
 runs/
 subm/
 subm_i_*/
+subm*/
+runs_*/
+weights/*.pth
 
 # interpreter bytecode
 __pycache__/
@@ -10,5 +13,6 @@ __pycache__/
 *_openvino_model
 *.torchscript
 *.pt
+*.pth
 *.onnx
 *.engine    

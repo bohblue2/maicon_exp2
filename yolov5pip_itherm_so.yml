@@ -1,4 +1,0 @@
-train_image_dir: /workspace/ithermal_data/train
-train_json_path: /workspace/ithermal_data/annotations/train.json
-val_image_dir: /workspace/ithermal_data/train
-val_json_path: /workspace/ithermal_data/annotations/valid_half.json

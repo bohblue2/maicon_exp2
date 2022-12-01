@@ -1,5 +1,5 @@
 names:
 - man
 nc: 1
-train: /workspace/maicon_exp2/yolov5pip_therm_yolo/train.txt
-val: /workspace/maicon_exp2/yolov5pip_therm_yolo/val.txt
+train: /workspace/Final_Submission/yolov5pip_therm_yolo/train.txt
+val: /workspace/Final_Submission/yolov5pip_therm_yolo/val.txt
