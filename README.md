@@ -9,9 +9,10 @@ This repository describes object tracking project on infrared and thermal images
 ## Installation
 
 ```
-git clone --recurse-submodules https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet.git  # clone recursively
-cd Yolov5_StrongSORT_OSNet
-pip install -r requirements.txt  # install dependencies
+cd <Yolov5_StrongSORT_OSNet>
+pip install -r requirements.txt 
+cd <yolov5-pip>
+pip install -r requirements.txt
 ```
 
 ## Tracking
