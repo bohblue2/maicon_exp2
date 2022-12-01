@@ -6,6 +6,8 @@
 - RAW 데이터 경로는 다음과 같아야 합니다. (`/workspace/01_data/`) (초기 셋팅과 다름)
 - 베이스라인 프로젝트 경로는 다음과 같아야 합니다. (`/workspace/02_baseline`) (초기 셋팅과 다름)
 - Weight and Bias 와 굉장히 커플링 되어 있기에 네트워크 환경이 불안정 할 경우 학습 도중 에러가 발생할 수 있습니다.
+- `Yolov5x`와 `StrongSORT`(`osnet_x0_25_market1501`, `osnet_x0_75_market1501`)를 사용하였습니다. `IR` 데이터와 `Thermal` 따로 분리하여 각각 모델을 학습시킨 모델을 사용하였습니다.
+- 모델의 Detection 퍼포먼스를 분석하여 Tracking 단계에서 `confidence_thres`를 조정하여 일부 추가 점수를 얻었습니다.
 
 #### 키워드
 
